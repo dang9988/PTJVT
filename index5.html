@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng Nhập</title>
+  <link href="styles/default5.css" type="text/css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+   
+  </style>
+</head>
+<body>
+
+  
+  <div class="form-container">
+    <h2>Đăng Nhập</h2>
+    <form onsubmit="handleLogin(event)">
+      <input type="text" id="login-name" placeholder="Tên đăng nhập" required />
+      <input type="password" id="login-password" placeholder="Mật khẩu" required />
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <p>Chưa có tài khoản? <a href="index6.html">Đăng ký ngay</a></p>
+  </div>
+
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("login-name").value;
+      const password = document.getElementById("login-password").value;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      const found = users.find(user => user.name === name && user.password === password);
+
+      if (found) {
+        alert("✅ Đăng nhập thành công!");
+        // Lưu người dùng đang đăng nhập
+        localStorage.setItem("currentUser", JSON.stringify(found));
+        // Redirect tới trang chủ sau khi đăng nhập thành công
+        window.location.href ="tc sau dn.html";
+      } else {
+        alert("❌ Sai tên đăng nhập hoặc mật khẩu!");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Tìm Việc Làm Part-Time Tại Vũng Tàu</title>
+  <link href="styles/tcsaudn.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+   
+    
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <img class="logo" src="images/logo.png" alt="Logo" />
+      <div class="menu-links">
+        <a href="#">Trang chủ</a>
+        <a href="index2.html">Công việc</a>
+        <a href="index4.html">Cẩm nang nghề nghiệp</a>
+        <a href="index7.html">CV cơ bản</a>
+      </div>
+
+      <div class="auth-buttons">
+        <!-- Trước đăng nhập -->
+        <div id="before-login">
+          <a href="index5.html" class="login-btn">Đăng nhập</a>
+          <a href="index6.html" class="signup-btn">Đăng ký</a>
+        </div>
+
+        <!-- Sau đăng nhập -->
+        <div id="after-login" class="user-info" style="display:none;">
+          <img src="images/anhdn.png" alt="User Avatar" class="user-avatar" />
+          <span id="user-name"></span>
+          <button onclick="logout()" class="logout-btn">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="banner">
+  <img src="images/720x300.jpg" alt="Banner tuyển dụng part-time tại Vũng Tàu" class="banner-img" />
+</div>
+	
+  <main>
+    <h1 class="centered-title">Tìm Việc Làm Part-Time Tại Vũng Tàu</h1>
+    <p class="intro-text">
+      Bạn đang là sinh viên hay người muốn tìm thêm thu nhập trong thời gian rảnh? Chúng tôi cung cấp nền tảng uy tín giúp bạn dễ dàng tìm được công việc part-time phù hợp ngay tại Vũng Tàu.
+    </p>
+    <h2>Vì sao nên chọn chúng tôi?</h2>
+    <ul class="benefits-list">
+      <li>Việc làm được cập nhật mỗi ngày</li>
+      <li>Hoàn toàn miễn phí cho người tìm việc</li>
+      <li>Giao diện đơn giản, dễ sử dụng</li>
+      <li>Thông tin nhà tuyển dụng rõ ràng</li>
+    </ul>
+    <h2>Bắt đầu ngay hôm nay!</h2>
+    <p>
+      Chỉ với vài bước đơn giản, bạn có thể tạo hồ sơ và nộp đơn trực tiếp đến nhà tuyển dụng. Đừng bỏ lỡ cơ hội tìm việc phù hợp, linh hoạt với thời gian của bạn.
+    </p>
+    <div class="timviec">
+      <a href="index2.html" class="btn-primary">Tìm Việc Ngay</a>
+    </div>
+  </main>
+
+
+ <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Về chúng tôi</h3>
+        <p>Chúng tôi là một đội ngũ chuyên cung cấp các công việc bán thời gian cho mọi người tìm tới một cách dễ dàng.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Liên hệ</h3>
+        <p>📞 0812985258</p>
+        <p>📞 0917739319</p>
+        <p>✉️ tuananhleduy2008@gmail.com</p>
+        <p>✉️ haidang5641@gmail.com</p>
+      </div>
+      <div class="footer-column">
+        <h3>Theo dõi chúng tôi</h3>
+        <p>🌐 Facebook: <a href="#">facebook.com/timviec.vungtau</a></p>
+        <p>💬 Zalo: <a href="#">Zalo Official</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Tìm Việc Vũng Tàu. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Script xử lý đăng nhập -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (currentUser && currentUser.name) {
+          document.getElementById("before-login").style.display = "none";
+          document.getElementById("after-login").style.display = "flex";
+          document.getElementById("user-name").textContent = currentUser.name;
+        }
+      } catch (error) {
+        console.error("Lỗi khi đọc người dùng hiện tại:", error);
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("currentUser");
+      location.reload();
+    }
+  </script>
+</body>
+</html>

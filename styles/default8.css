@@ -1,0 +1,41 @@
+#cv-template {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    button {
+      cursor: pointer;
+      padding: 8px 15px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }

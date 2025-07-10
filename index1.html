@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Đăng Ký</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #a64bf4, #ff4ec7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #673ab7, #512da8);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #5e35b1, #311b92);
+    }
+
+    #response {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>ĐƠN ỨNG TUYỂN CÔNG VIỆC</h2>
+    <form id="submitForm">
+      <input type="text" name="fullname" placeholder="Họ và tên" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Số điện thoại" required />
+      <input type="text" name="job" placeholder="Công việc" required />
+      <input type="text" name="location" placeholder="Địa điểm" required />
+      <textarea name="message" placeholder="Tin nhắn" rows="4"></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzhwqcLzPY9XHpEUF0xVlJKMunCGm_2HJd2MAI0pZAlGkkNj0Dx-ps02vLh3DkIGm9gbw/exec'; // <== Dán link script của bạn vào đây
+    const form = document.getElementById('submitForm');
+    const responseText = document.getElementById('response');
+
+ form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(result => {
+    responseText.innerHTML = '✅ Gửi thành công!';
+    form.reset();
+  })
+  .catch(error => {
+    console.error('Lỗi:', error);
+    responseText.innerHTML = '❌ Đã có lỗi xảy ra. Vui lòng thử lại.';
+  });
+});
+
+  </script>
+
+</body>
+</html>
